@@ -3,7 +3,7 @@
 # 🔧 Machine System POS
 
 A comprehensive Point of Sale (POS) system designed for machine repair shops and automotive service centers. Built with PHP, JavaScript, and modern web technologies.
-
+Get live view of the website here https://legend-unblessed-tristfully.ngrok-free.dev/pos-system/app/Views/pages/login.php
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![PHP](https://img.shields.io/badge/PHP-7.4+-purple)
 ![License](https://img.shields.io/badge/license-MIT-green)
