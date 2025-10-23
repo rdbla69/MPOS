@@ -1,9 +1,22 @@
 <?php
 $pageTitle = "Machine System POS - Admin Login";
+
+// Check for logout success
+$successMessage = '';
+if (isset($_GET['logout']) && $_GET['logout'] === 'success') {
+    $successMessage = 'You have been successfully logged out.';
+}
+
+// Check for error message
+$errorMessage = '';
+if (isset($_GET['error']) && $_GET['error'] === 'invalid') {
+    $errorMessage = 'Invalid username or password. Please try again.';
+}
+
 ob_start();
 ?>
 
-<form class="login-form" id="loginForm" method="POST" action="auth/login">
+<form class="login-form" id="loginForm" method="POST" action="/pos-system/auth/login.php" novalidate>
     <div class="form-group">
         <label for="username" class="form-label">
             <i class="fas fa-user"></i>
@@ -16,7 +29,6 @@ ob_start();
                 name="username" 
                 class="form-input" 
                 placeholder="Enter your username"
-                required
                 autocomplete="username"
             >
             <i class="fas fa-user input-icon"></i>
@@ -35,7 +47,6 @@ ob_start();
                 name="password" 
                 class="form-input" 
                 placeholder="Enter your password"
-                required
                 autocomplete="current-password"
             >
             <i class="fas fa-lock input-icon"></i>
@@ -59,13 +70,25 @@ ob_start();
         <i class="fas fa-arrow-right button-icon"></i>
     </button>
 
+    <?php if (!empty($successMessage)): ?>
+    <div class="login-alert success" id="loginAlert">
+        <i class="fas fa-check-circle"></i>
+        <span id="alertMessage"><?php echo htmlspecialchars($successMessage); ?></span>
+    </div>
+    <?php elseif (!empty($errorMessage)): ?>
+    <div class="login-alert" id="loginAlert">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span id="alertMessage"><?php echo htmlspecialchars($errorMessage); ?></span>
+    </div>
+    <?php else: ?>
     <div class="login-alert" id="loginAlert" style="display: none;">
         <i class="fas fa-exclamation-triangle"></i>
         <span id="alertMessage"></span>
     </div>
+    <?php endif; ?>
 </form>
 
 <?php
 $content = ob_get_clean();
-include 'app/Views/layouts/login-layout.php';
+include '../layouts/login-layout.php';
 ?>

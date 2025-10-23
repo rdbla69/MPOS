@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $pageTitle ?? 'Admin Login - POS System'; ?></title>
-    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="/pos-system/assets/css/login.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -35,6 +35,6 @@
         </div>
     </div>
     
-    <script src="assets/js/login.js"></script>
+    <script src="/pos-system/assets/js/login.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>

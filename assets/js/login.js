@@ -17,31 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
         icon.classList.toggle('fa-eye-slash');
     });
 
-    // Form validation
+    // Form validation - Allow any input
     function validateForm() {
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
-
-        if (!username) {
-            showAlert('Please enter your username', 'error');
-            return false;
-        }
-
-        if (!password) {
-            showAlert('Please enter your password', 'error');
-            return false;
-        }
-
-        if (username.length < 3) {
-            showAlert('Username must be at least 3 characters long', 'error');
-            return false;
-        }
-
-        if (password.length < 6) {
-            showAlert('Password must be at least 6 characters long', 'error');
-            return false;
-        }
-
+        // No validation required - allow direct access
         return true;
     }
 
@@ -94,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const formData = new FormData(loginForm);
         
         // Simulate API call (replace with actual endpoint)
-        fetch('auth/login', {
+        fetch('/pos-system/auth/login.php', {
             method: 'POST',
             body: formData,
             headers: {
