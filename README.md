@@ -114,18 +114,24 @@ Get live view of the website here https://legend-unblessed-tristfully.ngrok-free
 
 ### Login Page
 Modern and secure login interface with logo support.
+<img width="1860" height="871" alt="image" src="https://github.com/user-attachments/assets/44b5f326-5ebb-4e8b-a451-0c7e319f9d5f" />
+
 
 ### Dashboard
 Comprehensive overview with real-time statistics and charts.
+<img width="1895" height="894" alt="image" src="https://github.com/user-attachments/assets/8e9f8c4d-8803-4889-b83d-ffd419507c02" />
 
 ### POS System
 User-friendly point of sale interface for quick transactions.
+<img width="1888" height="900" alt="image" src="https://github.com/user-attachments/assets/5dd8356f-9a74-4bb8-98ba-49262c49ff2c" />
 
 ### Inventory Management
 Complete inventory tracking and management.
+<img width="1895" height="908" alt="image" src="https://github.com/user-attachments/assets/12977a47-0de2-4145-a3c9-51f57a12de7c" />
 
 ### Job Orders
 Streamlined job order creation and tracking.
+![Uploading image.png…]()
 
 ---
 
