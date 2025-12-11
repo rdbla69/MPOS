@@ -1,0 +1,11 @@
+{
+    "name": "rdbla69/pos-system",
+    "authors": [
+        {
+            "name": "y"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "10"
+    }
+}
