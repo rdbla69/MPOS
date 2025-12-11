@@ -1,0 +1,27 @@
+name: Run PHPUnit Tests
+
+on:
+  push:
+    branches: [development]   # Run on push to development
+  pull_request:
+    branches: [development, prod]  # Run on PRs to development or prod
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: mbstring, xml, sqlite, pdo_sqlite
+
+    - name: Install Composer dependencies
+      run: composer install --no-interaction --prefer-dist
+
+    - name: Run PHPUnit tests
+      run: vendor/bin/phpunit --testdox
