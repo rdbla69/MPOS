@@ -1,27 +1,29 @@
-name: Run PHPUnit Tests
+name: POS System CI
 
 on:
   push:
-    branches: [development]       # Only runs on pushes to dev
+    branches:
+      - development
   pull_request:
-    branches: [development, main] # Also on PRs involving dev/main
+    branches:
+      - development
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v3
         with:
           php-version: '8.2'
-          extensions: mbstring, xml, sqlite, pdo_sqlite
+          extensions: mbstring, mysqli, pdo, pdo_mysql
 
-      - name: Install dependencies
-        run: composer install --no-interaction --prefer-dist
+      - name: Install Composer dependencies
+        run: composer install --no-progress --no-interaction --prefer-dist
 
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit --testdox
+        run: vendor/bin/phpunit --colors=always
