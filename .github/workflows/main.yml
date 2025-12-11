@@ -9,21 +9,25 @@ on:
       - development
 
 jobs:
-  build:
+  phpunit-tests:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout the code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: Set up PHP 8.2 with required extensions
       - name: Set up PHP
         uses: shivammathur/setup-php@v3
         with:
           php-version: '8.2'
           extensions: mbstring, mysqli, pdo, pdo_mysql
 
+      # Step 3: Install Composer dependencies
       - name: Install Composer dependencies
         run: composer install --no-progress --no-interaction --prefer-dist
 
+      # Step 4: Run PHPUnit tests via Composer
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit --colors=always
+        run: composer exec phpunit -- --colors=always
